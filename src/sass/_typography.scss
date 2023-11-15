@@ -1,0 +1,164 @@
+.title {
+    font-family: $font-text;
+    font-size: 200px;
+    font-weight: $font-black;
+    text-transform: uppercase;
+    letter-spacing: 120px;
+    color: $color-light;
+    text-align: center;
+    filter: drop-shadow(0 0 71px rgba(0,0,0,0.39));
+  }
+  
+.subtitle {
+    font-size: 36px;
+    font-weight: $font-black;
+    text-transform: uppercase;
+    width: 1922px;
+    height: 210px;
+    letter-spacing: 11px;
+    line-height: 72px;
+    color: $color-light;
+    font-family: $font-text;
+    text-align: center;
+}
+  
+.nav {
+    font-size: 30px;
+    letter-spacing: 2px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $color-light;
+    font-weight: $font-semibold;
+    font-family: $font-text;
+}
+
+.songs {
+    width: 578px;
+    height: 111px;
+    font-size: 30px;
+    letter-spacing: 2px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $color-light;
+    font-weight: $font-semibold;
+    font-family: $font-text;
+}
+
+.categories /* && .ranking */ {
+    width: 447px;
+    height: 123px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 27px;
+    color: $color-gray;
+    font-weight: $font-regular;
+    font-family: $font-text;
+}
+
+.btn-join {
+    width: 358px;
+    height: 152px;
+    font-size: 40px;
+    letter-spacing: 8px;
+    line-height: 27px;
+    color: $color-light;
+    font-weight: $font-bold;
+    font-family: $font-text;
+    text-align: right;
+}
+
+.album {
+    width: 836px;
+    height: 321px;
+    font-size: 40px;
+    letter-spacing: 8px;
+    line-height: 27px;
+    color: $color-gray;
+    font-weight: $font-bold;
+    font-family: $font-text;
+    text-align: right; 
+}
+
+.author {
+    width: 692px;
+    height: 333px;
+    font-size: 100px;
+    letter-spacing: 20px;
+    line-height: 27px;
+    color: $color-light;
+    font-weight: $font-black;
+    font-family: $font-text;
+    filter: drop-shadow(0 0 71px rgba(0,0,0,0.11));
+}
+
+.subscribe {
+    width: 1278px;
+    height: 410px;
+    font-size: 100px;
+    letter-spacing: 20px;
+    line-height: 27px;
+    color: $color-light;
+    font-weight: $font-semibold;
+    font-family: $font-text;
+}
+
+.found /* give it a try*/{
+    width: 806px;
+    height: 81px;
+    font-size: 30px;
+    letter-spacing: 6px;
+    line-height: 27px;
+    color: $color-light;
+    font-weight: $font-semibold;
+    font-family: $font-text;
+    text-align: center; 
+}
+
+.btn-search {
+    width: 102px;
+    height: 46px;
+    font-size: 20px;
+    letter-spacing: 4px;
+    line-height: 27px;
+    color: $color-light;
+    font-weight: $font-semibold;
+    font-family: $font-text;
+    text-align: center;
+}
+
+.song-name-search {
+    width: 116px;
+    height: 47px;
+    font-size: 30px;
+    letter-spacing: 6px;
+    line-height: 27px;
+    color: $color-gray;
+    font-weight: $font-semibold;
+    font-family: $font-text;
+    text-align: center; 
+}
+
+.search-title /* and discover title*/ {
+    width: 574px;
+    height: 146px;
+    font-size: 60px;
+    letter-spacing: 12px;
+    line-height: 27px;
+    color: $color-gray;
+    font-weight: $font-semibold;
+    font-family: $font-text;
+    text-align: center; 
+}
+
+.footer {
+    width: 1597px;
+    height: 146px;
+    font-size: 20px;
+    letter-spacing: 4px;
+    line-height: 27px;
+    color: $color-light;
+    font-weight: $font-regular;
+    font-family: $font-text;
+    text-align: center;
+}
+

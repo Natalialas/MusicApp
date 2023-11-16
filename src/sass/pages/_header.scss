@@ -1,0 +1,61 @@
+.splash {
+	height: 100hv;
+	position: relative;
+	background-image: url('../../images/background.jpg');
+	background-position: center center;
+	background-size: cover;
+    width: 100%;
+	display: flex;
+    text-align: center;
+
+	.splash-inner {
+        position: absolute;
+        width: 100%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		margin: auto;
+		max-width: 70%;
+		cursor: pointer;
+		text-decoration: none;
+
+		color: $color-light;
+		font-weight: $font-black;
+        font-family: $font-text;
+        text-transform: uppercase;
+		h1 {
+			font-size: 200px;
+            letter-spacing: 120px;
+            filter: drop-shadow(0 0 71px rgba(0,0,0,0.39));
+            margin: 0;
+		}
+		h2 {
+            font-size: 36px;
+            width: 1922px;
+            height: 210px;
+            letter-spacing: 11px;
+            line-height: 72px;
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+		}
+	}
+    .navigation {
+        font-size: 30px;
+        letter-spacing: 2px;
+        line-height: 27px;
+        text-transform: uppercase;
+        color: $color-light;
+        font-weight: $font-semibold;
+        font-family: $font-text;
+
+        position: absolute;
+	    bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); 
+	a {
+		text-decoration: none;
+	}
+    }
+}

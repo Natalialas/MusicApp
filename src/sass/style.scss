@@ -3,4 +3,5 @@
 @import 'typography';
 @import 'normalize';
 @import 'layout';
-@import './bootstrap';
+@import 'pages/header';
+@import "../vendor/bootstrap-grid.css"

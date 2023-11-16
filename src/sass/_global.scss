@@ -8,11 +8,10 @@ body {
   background-color: $color-dark;
 }
 
-#pages section {
+#pages {
   display: none;
-}
 
-/* Styl dla aktywnej sekcji */
-#pages section.active {
+  &.active {
   display: block;
+  }
 }

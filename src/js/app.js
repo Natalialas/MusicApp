@@ -1,6 +1,14 @@
 import {select, classNames} from './settings.js';
+import Home from './components/Home.js';
 
 const app = {
+  initHome: function () {
+    const thisApp = this;
+
+    thisApp.homeElem = document.querySelector(select.containerOf.home);
+    thisApp.home = new Home(thisApp.homeElem, thisApp.dataHome);
+  },
+
   initPages: function(){
     const thisApp = this;
 
@@ -48,6 +56,7 @@ const app = {
 
   init: function(){
     const thisApp = this;
+    thisApp.initHome();
     thisApp.initPages();
   }
 };

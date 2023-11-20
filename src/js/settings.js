@@ -23,9 +23,7 @@ export const classNames = {
 export const settings = {
   db: {
     url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
-    discover: 'discover',
-    search: 'search',
-    home: 'home',
+    songs: 'songs',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',

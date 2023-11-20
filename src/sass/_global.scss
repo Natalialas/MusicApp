@@ -9,9 +9,11 @@ body {
 }
 
 #pages {
-  display: none;
+  > * {
+    display: none;
+  }
 
-  &.active {
+  > .active {
     display: block;
   }
 }

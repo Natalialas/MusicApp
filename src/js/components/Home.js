@@ -1,25 +1,26 @@
-import {templates} from '../settings.js';
+import {templates, select} from '../settings.js';
 import utils from '../utils.js';
 
 class Home {
-  constructor(element) {
+  constructor(id, data) {
     const thisHome = this;
 
-    thisHome.render(element);
+    thisHome.id = id;
+    thisHome.data = data;
+
+    thisHome.render();
   }
 
-  render(element) {
+  render() {
     const thisHome = this;
 
-    thisHome.dom = {};
+    const generatedHTML = templates.home(thisHome.data);
 
-    thisHome.dom.wrapper = element;
+    thisHome.element = utils.createDOMFromHTML(generatedHTML);
 
-    const generatedHTML = templates.home(thisHome.dom.wrapper);
+    const homeContainer = document.querySelector(select.containerOf.home);
 
-    const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-
-    thisHome.dom.wrapper.appendChild(generatedDOM);
+    homeContainer.appendChild(thisHome.element);
   }
 }
 

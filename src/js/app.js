@@ -1,17 +1,10 @@
-import {select, classNames} from './settings.js';
+import {settings, select, classNames} from './settings.js';
 import Home from './components/Home.js';
 import Discover from './components/Discover.js';
 import Search from './components/Search.js';
 
 
 const app = {
-  initHome: function () {
-    const thisApp = this;
-
-    thisApp.homeElem = document.querySelector(select.containerOf.home);
-    thisApp.home = new Home(thisApp.homeElem, thisApp.dataHome);
-  },
-
   initDiscover: function () {
     const thisApp = this;
 
@@ -71,10 +64,40 @@ const app = {
     }
   },
 
+  initHomePage: function () {
+
+    const thisApp = this;
+    for(let songData in thisApp.data.songs){
+      new Home(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
+    }
+  },
+
+  initData: function(){
+    const thisApp = this;
+
+    thisApp.data = {};
+    const url = settings.db.url + '/' + settings.db.songs;
+
+    fetch(url)
+      .then(function(rawResponse){
+        return rawResponse.json();
+      })
+      .then(function(parsedResponse){
+        console.log('parsedResponse', parsedResponse);
+        
+        thisApp.data.songs = parsedResponse;
+        
+        thisApp.initHomePage();
+      });
+
+    console.log('thisApp.data', JSON.stringify(thisApp.data));
+  },
+
 
   init: function(){
     const thisApp = this;
-    thisApp.initHome();
+    thisApp.initData();
+    // thisApp.initHome();
     thisApp.initPages();
     thisApp.initDiscover();
     thisApp.initSearch();

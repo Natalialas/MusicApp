@@ -86,12 +86,32 @@
   </script>
 
   <script id="template-search" type="text/x-handlebars-template">
-    <div class="search-widget">
+    <div id="search-wrapper" class="search-wrapper container">
+      <h1 class="section-title">Search</h1>
+      <div class="search-form">
+        <label for="songName">Name:</label>
+        <input type="text" id="songName" name="songName" placeholder="Enter song name">
+        <button id="searchButton">Search</button>
+      </div>
+      <p id="resultCount">Found 0 songs</p>
+      <div id="search-results" class="search-results">
+        <!-- Generated search results will be displayed here -->
+      </div>
     </div>
   </script>
 
   <script id="template-discover" type="text/x-handlebars-template">
-    <div class="discover-widget">
+    <div id="discover-wrapper" class="discover-wrapper container">
+      <h1 class="section-title">Discover</h1>
+      <p>Give it a try!</p>
+  
+      <div id="random-song" class="song-item">
+        <!-- The randomly generated song will be displayed here -->
+      </div>
+  
+      <div class="footer">
+        <a href="#">All rights reserved</a>
+      </div>
     </div>
   </script>
 

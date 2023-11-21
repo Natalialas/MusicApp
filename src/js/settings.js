@@ -1,8 +1,12 @@
 export const select = {
   templateOf: {
+    search: '#template-search',
+    discover: '#template-discover',
     home: '#template-home',
   },
   containerOf: {
+    search: '#search-wrapper',
+    discover: '#discover-wrapper',
     pages: '#pages',
     home: '#home-wrapper',
   },
@@ -32,5 +36,7 @@ export const settings = {
 };
 
 export const templates = {
+  search: Handlebars.compile(document.querySelector(select.templateOf.search).innerHTML),
+  discover: Handlebars.compile(document.querySelector(select.templateOf.discover).innerHTML),
   home: Handlebars.compile(document.querySelector(select.templateOf.home).innerHTML),
 };

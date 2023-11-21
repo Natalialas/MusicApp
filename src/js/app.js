@@ -1,5 +1,8 @@
 import {select, classNames} from './settings.js';
 import Home from './components/Home.js';
+import Discover from './components/Discover.js';
+import Search from './components/Search.js';
+
 
 const app = {
   initHome: function () {
@@ -7,6 +10,20 @@ const app = {
 
     thisApp.homeElem = document.querySelector(select.containerOf.home);
     thisApp.home = new Home(thisApp.homeElem, thisApp.dataHome);
+  },
+
+  initDiscover: function () {
+    const thisApp = this;
+
+    const discoverElem = document.querySelector(select.containerOf.discover);
+    thisApp.discover = new Discover(discoverElem);
+  },
+
+  initSearch: function () {
+    const thisApp = this;
+
+    const searchElem = document.querySelector(select.containerOf.search);
+    thisApp.search = new Search(searchElem);
   },
 
   initPages: function(){
@@ -59,6 +76,8 @@ const app = {
     const thisApp = this;
     thisApp.initHome();
     thisApp.initPages();
+    thisApp.initDiscover();
+    thisApp.initSearch();
   }
 };
 

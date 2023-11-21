@@ -2,9 +2,17 @@ import {settings, select, classNames} from './settings.js';
 import Home from './components/Home.js';
 import Discover from './components/Discover.js';
 import Search from './components/Search.js';
+import HomeSongs from './components/HomeSongs.js';
 
 
 const app = {
+  initHome: function () {
+    const thisApp = this;
+  
+    thisApp.homeElem = document.querySelector(select.containerOf.home);
+    thisApp.home = new Home(thisApp.homeElem, thisApp.dataHome);
+  },
+
   initDiscover: function () {
     const thisApp = this;
 
@@ -64,11 +72,11 @@ const app = {
     }
   },
 
-  initHomePage: function () {
+  initHomeSongs: function () {
 
     const thisApp = this;
     for(let songData in thisApp.data.songs){
-      new Home(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
+      new HomeSongs(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
     }
   },
 
@@ -87,7 +95,7 @@ const app = {
         
         thisApp.data.songs = parsedResponse;
         
-        thisApp.initHomePage();
+        thisApp.initHomeSongs();
       });
 
     console.log('thisApp.data', JSON.stringify(thisApp.data));
@@ -97,7 +105,7 @@ const app = {
   init: function(){
     const thisApp = this;
     thisApp.initData();
-    // thisApp.initHome();
+    thisApp.initHome();
     thisApp.initPages();
     thisApp.initDiscover();
     thisApp.initSearch();

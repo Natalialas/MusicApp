@@ -1,10 +1,12 @@
 export const select = {
   templateOf: {
+    songs: '#template-songs',
     search: '#template-search',
     discover: '#template-discover',
     home: '#template-home',
   },
   containerOf: {
+    songs: '.song-wrapper',
     search: '#search-wrapper',
     discover: '#discover-wrapper',
     pages: '#pages',
@@ -38,5 +40,6 @@ export const settings = {
 export const templates = {
   search: Handlebars.compile(document.querySelector(select.templateOf.search).innerHTML),
   discover: Handlebars.compile(document.querySelector(select.templateOf.discover).innerHTML),
+  songs: Handlebars.compile(document.querySelector(select.templateOf.songs).innerHTML),
   home: Handlebars.compile(document.querySelector(select.templateOf.home).innerHTML),
 };

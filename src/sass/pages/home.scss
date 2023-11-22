@@ -1,20 +1,21 @@
 .subscribe-section {
-    background-image: url('../../images/subscribe.jpg');
-    background-size: cover;
-    height: 1000px;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  height: 1000px;
+  background-image: url('../../images/subscribe.jpg');
+  object-fit: cover;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.subscribe-title {
-    width: 1278px;
-    height: 410px;
-    font-size: 100px;
-    letter-spacing: 20px;
-    line-height: 27px;
-    color: $color-light;
-    font-weight: $font-semibold;
-    font-family: $font-text;
-    text-transform: uppercase;
+.subscribe-title h1 {
+  width: 1278px;
+  height: 410px;
+  font-size: 100px;
+  letter-spacing: 20px;
+  line-height: 27px;
+  color: #fff;
+  font-weight: 600;
+  font-family: 'Source Sans 3', sans-serif;
+  text-transform: uppercase;
 }

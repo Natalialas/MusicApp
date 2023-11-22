@@ -1,4 +1,4 @@
-import {templates, select} from '../settings.js';
+import { select} from '../settings.js';
 
 class HomeSongs {
   constructor(id, data) {
@@ -24,24 +24,24 @@ class HomeSongs {
     });
   }
 
-  createSongView(song) {
-    const thisHomeSongs = this;
-    // Create a new element for the song
-    const songElement = document.createElement('div');
-    songElement.classList.add('song-item');
+  //   createSongView(song) {
+  //     const thisHomeSongs = this;
+  //     // Create a new element for the song
+  //     const songElement = document.createElement('div');
+  //     songElement.classList.add('song-item');
 
-    // Populate the element with song details using the template
-    const generatedHTML = templates.songs({ songs: [song] });
-    songElement.innerHTML = generatedHTML;
+  //     // Populate the element with song details using the template
+  //     const generatedHTML = templates.songs({ songs: [song] });
+  //     songElement.innerHTML = generatedHTML;
 
-    // Initialize Green Audio Player for the current song
-    GreenAudioPlayer.init({
-      selector: `.player-${thisHomeSongs.id} .green-audio-player`,
-      stopOthersOnPlay: true,
-    });
+  //     // Initialize Green Audio Player for the current song
+  //     GreenAudioPlayer.init({
+  //       selector: `.player-${thisHomeSongs.id} .green-audio-player`,
+  //       stopOthersOnPlay: true,
+  //     });
 
-    return songElement;
-  }
+  //     return songElement;
+  //   }
 }
 
 export default HomeSongs;

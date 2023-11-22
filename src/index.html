@@ -45,24 +45,24 @@
 
   <script id="template-songs" type="text/x-handlebars-template">
     <div id="song-wrapper" class="song-wrapper container">
-    {{#each songs}}
-      <div id="song-item">
-        <div class="song-details">
-          <p class="song-artist">{{author}}</p>
-          <p class="song-title">{{title}}</p>
+      {{#each songs}}
+        <div class="song-item">
+          <div class="song-details">
+            <p class="song-artist">{{author}}</p>
+            <p class="song-title">{{title}}</p>
+          </div>
+          <div class="audio-player">
+            <audio class="player green-audio-player" controls preload="metadata">
+              <source src="./songs/{{filename}}" type="audio/mp3">
+            </audio>
+          </div>
+          <div class="song-metadata">
+            <p class="song-category">{{categories}}</p>
+            <p class="song-ranking">{{ranking}}</p>
+          </div>
         </div>
-        <div class="audio-player">
-          <audio class="green-audio-player" controls preload="metadata">
-            <source src="{{filename}}" type="audio/mp3">
-          </audio>
-        </div>
-        <div class="song-metadata">
-          <p class="song-category">{{categories}}</p>
-          <p class="song-ranking">{{ranking}}</p>
-        </div>
-      </div>
-    {{/each}}
-  </div>
+      {{/each}}
+    </div>
   </script>
 
   <script id="template-home" type="text/x-handlebars-template">

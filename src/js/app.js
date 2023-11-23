@@ -73,7 +73,6 @@ const app = {
   },
 
   initHomeSongs: function () {
-
     const thisApp = this;
     for(let songData in thisApp.data.songs){
       new HomeSongs(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);

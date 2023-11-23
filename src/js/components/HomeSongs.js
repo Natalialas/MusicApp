@@ -1,47 +1,52 @@
-import { select} from '../settings.js';
+import { select, templates} from '../settings.js';
+import utils from '../utils.js';
 
 class HomeSongs {
   constructor(id, data) {
     const thisHomeSongs = this;
-
+  
     thisHomeSongs.id = id;
     thisHomeSongs.data = data;
-
+  
     thisHomeSongs.render();
+    // thisHomeSongs.createSongView();
+    thisHomeSongs.initializeAudioPlayer();
   }
 
   render() {
     const thisHomeSongs = this;
 
-    // Clear the container before appending new songs
-    const homeSongsContainer = document.querySelector(select.containerOf.songs);
-    homeSongsContainer.innerHTML = '';
+    const generatedHTML = templates.songs(thisHomeSongs.data);
 
-    // Iterate through each song and render its view
-    thisHomeSongs.data.songs.forEach(song => {
-      const songView = thisHomeSongs.createSongView(song);
-      homeSongsContainer.appendChild(songView);
-    });
+    thisHomeSongs.element = utils.createDOMFromHTML(generatedHTML);
+
+    const songContainer = document.querySelector(select.containerOf.songs);
+
+    songContainer.appendChild(thisHomeSongs.element);
   }
 
-  //   createSongView(song) {
-  //     const thisHomeSongs = this;
-  //     // Create a new element for the song
-  //     const songElement = document.createElement('div');
-  //     songElement.classList.add('song-item');
+//   createSongView() {
+//     const thisHomeSongs = this;
 
-  //     // Populate the element with song details using the template
-  //     const generatedHTML = templates.songs({ songs: [song] });
-  //     songElement.innerHTML = generatedHTML;
+//     const songItems = thisHomeSongs.element.querySelectorAll('.song-item');
 
-  //     // Initialize Green Audio Player for the current song
-  //     GreenAudioPlayer.init({
-  //       selector: `.player-${thisHomeSongs.id} .green-audio-player`,
-  //       stopOthersOnPlay: true,
-  //     });
+//     songItems.forEach((songItem, index) => {
+//       const songData = thisHomeSongs.data.songs[index];
+//       const songViewHTML = templates.songs(songData);
+//       const songViewElement = utils.createDOMFromHTML(songViewHTML);
+//       songItem.appendChild(songViewElement);
+//     });
+   
+//   }
 
-  //     return songElement;
-  //   }
+  initializeAudioPlayer() {
+    // const thisHomeSongs = this;
+
+    GreenAudioPlayer.init({
+      selector: '.player',
+      stopOthersOnPlay: true
+    });
+  }
 }
-
+  
 export default HomeSongs;

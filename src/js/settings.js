@@ -1,12 +1,12 @@
 export const select = {
   templateOf: {
     songs: '#template-songs',
+    searchBar: '#template-searchbar',
     search: '#template-search',
     discover: '#template-discover',
     home: '#template-home',
   },
   containerOf: {
-    songs: '.song-wrapper',
     search: '#search-wrapper',
     discover: '#discover-wrapper',
     pages: '#pages',
@@ -14,6 +14,7 @@ export const select = {
   },
   nav: {
     links: '.navigation a',
+    discover: 'a[href="#discover"]',
   },
 };
 
@@ -29,11 +30,7 @@ export const classNames = {
 export const settings = {
   db: {
     url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
-    songs: 'songs',
-    dateStartParamKey: 'date_gte',
-    dateEndParamKey: 'date_lte',
-    notRepeatParam: 'repeat=false',
-    repeatParam: 'repeat_ne=false',
+    database: 'database',
   },
 };
 

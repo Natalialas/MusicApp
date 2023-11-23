@@ -2,31 +2,9 @@ import {settings, select, classNames} from './settings.js';
 import Home from './components/Home.js';
 import Discover from './components/Discover.js';
 import Search from './components/Search.js';
-import HomeSongs from './components/HomeSongs.js';
 
 
 const app = {
-  initHome: function () {
-    const thisApp = this;
-  
-    thisApp.homeElem = document.querySelector(select.containerOf.home);
-    thisApp.home = new Home(thisApp.homeElem, thisApp.dataHome);
-  },
-
-  initDiscover: function () {
-    const thisApp = this;
-
-    const discoverElem = document.querySelector(select.containerOf.discover);
-    thisApp.discover = new Discover(discoverElem);
-  },
-
-  initSearch: function () {
-    const thisApp = this;
-
-    const searchElem = document.querySelector(select.containerOf.search);
-    thisApp.search = new Search(searchElem);
-  },
-
   initPages: function(){
     const thisApp = this;
 
@@ -72,18 +50,11 @@ const app = {
     }
   },
 
-  initHomeSongs: function () {
-    const thisApp = this;
-    for(let songData in thisApp.data.songs){
-      new HomeSongs(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
-    }
-  },
-
   initData: function(){
     const thisApp = this;
 
     thisApp.data = {};
-    const url = settings.db.url + '/' + settings.db.songs;
+    const url = settings.db.url + '/' + settings.db.database;
 
     fetch(url)
       .then(function(rawResponse){
@@ -92,23 +63,59 @@ const app = {
       .then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
         
-        thisApp.data.songs = parsedResponse;
-        
-        thisApp.initHomeSongs();
+        thisApp.data = parsedResponse;
+
+        thisApp.initContent();
       });
 
     console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
 
+  customizeSongSource: function() {
+    const thisApp = this;
+
+    for (const song of thisApp.data.songs) {
+      song.src = `./songs/${song.filename}`;
+    }
+  },
+
+  initHome: function () {
+    const thisApp = this;
+  
+    const homeElem = document.querySelector(select.containerOf.home);
+    thisApp.home = new Home(homeElem, thisApp.dataHome);
+  },
+
+  initDiscover: function () {
+    const thisApp = this;
+
+    const discoverElem = document.querySelector(select.containerOf.discover);
+    thisApp.discover = new Discover(discoverElem, thisApp.data);
+  },
+
+  initSearch: function () {
+    const thisApp = this;
+
+    const searchElem = document.querySelector(select.containerOf.search);
+    thisApp.search = new Search(searchElem, thisApp.data);
+  },
+
+  initContent: function() {
+    const thisApp = this;
+    
+    thisApp.customizeSongSource();
+    thisApp.initHome();
+    thisApp.initSearch();
+    thisApp.initDiscover();
+  },
 
   init: function(){
     const thisApp = this;
-    thisApp.initData();
-    thisApp.initHome();
+  
     thisApp.initPages();
-    thisApp.initDiscover();
-    thisApp.initSearch();
+    thisApp.initData();
   }
 };
+
 
 app.init();

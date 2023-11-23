@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Music website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,88 +43,101 @@
     </section>
   </div>
 
+  <footer class="footer">
+    All rights reserved
+  </footer>
 
-  <script id="template-songs" type="text/x-handlebars-template">
-    <div id="song-wrapper" class="song-wrapper container">
-      {{#each songs}}
-        <div class="song-item">
-          <div class="song-details">
-            <p class="song-artist">{{author}}</p>
-            <p class="song-title">{{title}}</p>
-          </div>
-          <div class="audio-player">
-            <audio class="player green-audio-player" controls preload="metadata">
-              <source src="./songs/{{filename}}" type="audio/mp3">
-            </audio>
-          </div>
-          <div class="song-metadata">
-            <p class="song-category">{{categories}}</p>
-            <p class="song-ranking">{{ranking}}</p>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-  </script>
 
   <script id="template-home" type="text/x-handlebars-template">
-  <div class="subscribe-section">
-    <div class="subscribe-title">
-      <h1>Subscribe Now</h1>
-    </div>
-    <div class="btn">
-      <button class="join-now-btn">Join Now</button>
-    </div>
-    <div class="album-info">
-      <div class="album-cover">
-        <img src="images/artist.jpg" alt="Artist Image">
+  <div class="songs container">
+
+    <div class="banner background-full parallax">
+      <h2 class="banner__title">
+        SUBSCRIBE
+        <span class="banner__title--bold">NOW</span>
+      </h2>
+
+      <div class="banner__row flex flex--column flex--space-around flex-xl--row flex-xl--space-between">
+        <div class="banner__col banner__col--button">
+          <button class="button banner__button">
+            JOIN NOW
+          </button>
+        </div>
+        <div class="banner__col banner__col--album">
+          <div class="flex flex--center">
+            <h3 class="banner__author">
+              <div class="banner__author--firstname">{{ name.firstname }}</div>
+              <div class="banner__author--lastname" data-name="{{ name.lastname }}"><span class="banner__author--lastname-first-half"></span><span class="banner__author--lastname-second-half"></span></div>
+            </h3>
+            <div class="banner__album-cover">
+              <img src="{{ img }}" alt="" class="banner__album-cover--img">
+            </div>
+          </div>
+          <div class="banner__info">
+            <h4 class="banner__info--header">NEW ALBUM</h4>
+            <p class="banner__info--paragraph">Available only for subscribers</p>
+          </div>
+        </div>
       </div>
-      <div class="artist">
-        <h1>Dean Henson</h1>
-      </div>
-      <div class="new-album">
-        <p>New album</p>
-        <p>Available only for subscribers</p>
-      </div>
-    </div>
-  </div>
-    <div class="footer">
-      <a href="#">All rights reserved</a>
     </div>
   </script>
 
   <script id="template-search" type="text/x-handlebars-template">
-    <div id="search-wrapper" class="search-wrapper container">
-      <h1 class="section-title">Search</h1>
-      <div class="search-form">
-        <label for="songName">Name:</label>
-        <input type="text" id="songName" name="songName" placeholder="Enter song name">
-        <button id="searchButton">Search</button>
-      </div>
-      <p id="resultCount">Found 0 songs</p>
-      <div id="search-results" class="search-results">
-        <!-- Generated search results will be displayed here -->
-      </div>
-    </div>
+    <h1 class="section-title">Search</h1>
+    <div class="search-form"></div>
+    <div class="page__communicate">Search through all songs...</div>
+    <div class="songs container"></div>
   </script>
 
   <script id="template-discover" type="text/x-handlebars-template">
-    <div id="discover-wrapper" class="discover-wrapper container">
       <h1 class="section-title">Discover</h1>
-      <p>Give it a try!</p>
-  
-      <div id="random-song" class="song-item">
-        <!-- The randomly generated song will be displayed here -->
-      </div>
-  
-      <div class="footer">
-        <a href="#">All rights reserved</a>
-      </div>
-    </div>
+      <div class="page__communicate">Give it a try!</div>
+      <div class="songs container"></div>
   </script>
 
+  <script id="template-songs" type="text/x-handlebars-template">
+    <div id="song-wrapper" class="song-wrapper container">
+      <h3 class="song__title">
+        <a href="#" data-author="{{ author.id }}" class="song__title--author display--block display-md--inline">
+          {{ author.name }}
+        </a>
+        <span class="display--none display-md--inline">&nbsp;-&nbsp;</span>
+        <a href="#" data-title="{{ title }}" class="song__title--title display--block display-md--inline">{{ title }}</a>
+      </h3>
+      <div class="song__audio-player">
+        <audio>
+          <source src="{{ src }}" type="audio/mp3"></source>
+        </audio>
+        <div class="song__additionals flex flex--space-between flex--column flex-md--row">
+          <div class="song__additionals--categories">
+            Categories:
+            {{#each categories}}
+              <a href="#{{ this }}">{{ this }}</a>
+            {{/each}}
+          </div>
+          <div class="song__additionals--ranking">
+            #{{ ranking }} in the <a href="#ranking">ranking</a>
+          </div>
+        </div>
+      </div>
+  </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script id="template-searchbar" type="text/x-handlebars-template">
+    <form class="searchbar">
+      <div class="searchbar__wrapper flex flex--center flex--column flex-md--row">
+        <label for="song" class="searchbar__title">
+          Name
+        </label>
+        <input type="text" name="song" class="searchbar__input">
+        <button class="button">
+          Search
+        </button>
+      </div>
+    </form>
+</script>
+
   <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="js/app.js" type="module"></script>
 </body>
 </html>
